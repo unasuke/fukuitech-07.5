@@ -112,6 +112,14 @@ module.exports = function(grunt) {
 			]
 		},
 
+		pug: {
+			compile: {
+				files: {
+					'index.html': 'index.pug'
+				}
+			}
+		},
+
 		watch: {
 			js: {
 				files: [ 'Gruntfile.js', 'js/reveal.js' ],
@@ -124,6 +132,10 @@ module.exports = function(grunt) {
 			css: {
 				files: [ 'css/reveal.scss' ],
 				tasks: 'css-core'
+			},
+			pug: {
+				files: [ '*.pug' ],
+				tasks: 'pug'
 			},
 			html: {
 				files: [ '*.html']
@@ -139,6 +151,7 @@ module.exports = function(grunt) {
 	});
 
 	// Dependencies
+	grunt.loadNpmTasks( 'grunt-contrib-pug' );
 	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
