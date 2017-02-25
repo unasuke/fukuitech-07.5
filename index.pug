@@ -1,0 +1,384 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    title Should we use docker?
+    link(rel='stylesheet', href='css/reveal.css')
+    link(rel='stylesheet', href='css/theme/white.css')
+    link(rel='stylesheet', href='lib/css/zenburn.css')
+    script.
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    script(async='', src='//platform.twitter.com/widgets.js', charset='utf-8')
+  body
+    .reveal
+      .slides
+        section
+          h1 Should we use doker?
+          p 2017-02-25
+          p fukuitech 7.5
+          p 株式会社spice life うなすけ
+        section(data-background-image='img/icon.jpg')
+          h2 自己紹介
+          ul
+            li うなすけ
+            li twitter : yu_suke1994
+            li 株式会社spice life
+            li インフラ部所属
+        section(data-background-image='img/spicelife.png')
+          h2 自己紹介
+          ul
+            li うなすけ
+            li twitter : yu_suke1994
+            li 株式会社spice life
+            li インフラ部所属
+        section
+          h2 自己紹介
+          ul
+            li うなすけ
+            li twitter : yu_suke1994
+            li 株式会社spice life
+            li インフラ部所属 ←NEW!
+        section
+          p さて
+        section
+          img(src='img/docker.png')
+        section
+          h2 Do you use docker?
+          img(src='img/docker.png')
+        section
+          h2 But, wait.. What is docker?
+          .fragment
+            p ここでfukutech 06の資料を見に行く
+            a(href="https://unasuke.github.io/fukuitech-06/") https://unasuke.github.io/fukuitech-06/
+          img(src='img/docker.png')
+        section
+          h2 Q. dockerとは？
+          ul
+            li A. 仮想マシンでしょ？
+            li A. Vagrantみたいなやつ！
+            li A. 流行ってるだけですぐなくなるよ
+        section
+          h2 Q. dockerとは？
+          ul
+            li A. 仮想マシンでしょ？
+            li
+              del A. Vagrantみたいなやつ！
+            li
+              del A. 流行ってるだけですぐなくなるよ
+        section
+          h3 dockerはコンテナ型仮想環境
+          img(width="80%" src="img/containers.jpg")
+          small
+            a(href="https://ja.wikipedia.org/wiki/コンテナ") https://ja.wikipedia.org/wiki/コンテナ
+            span より
+        section(data-background-image="img/containers_pale.jpg")
+          h3 dockerはコンテナ型仮想環境
+          h4 コンテナの利点
+          ul
+            li 企画化による運搬の簡易化
+            li 中身を気にしなくてよい
+          p ……など
+        section(data-background-image="img/docker_pale.png")
+          h3 dockerはコンテナ型仮想環境
+          h4 dockerの利点
+          ul
+            li どこに持っていっても動く
+            li 依存関係をコンテナの中に閉じこめておける
+          p ……など
+        section
+          h3 Vagrant(VirtualBox)との違いは？
+        section
+          h3 Vagrant(VirtualBox)との違い
+          p A. 仮想化に対するアプローチの違い
+        section
+          h3 dockerとVagrant
+          table
+            tr
+              td
+              td docker
+              td Vagrant
+            tr
+              td ざっくり
+              td OSの核は共有
+              td OSの中に別のOS
+            tr
+              td 速度比較
+              td 速い
+              td 遅い
+        section
+          h3 dockerは一過性の技術なのか
+        section
+          h3 dockerは一過性の技術なのか
+          p
+            b(style="font-size: 2em;") No
+          p(style="font-size: 0.7em;") ただし「コンテナ型仮想化」についての話
+        section
+          h3 dockerは一過性の技術なのか
+          p
+            span docker自体は競合するプロダクトが存在するので
+            br
+            span なくなる可能性もある
+          p しかしコンテナという考え方は廃れない
+          small ……と思う
+        section
+          p さて
+        section
+          h2 事例紹介
+          p ほんまにdocker使われてるんか？
+        section
+          h2 事例紹介
+          img(src="img/tmix.png")
+          a(href="https://tmix.jp") https://tmix.jp
+        section(data-background-image="img/tmix_editor.png")
+          h2 事例紹介
+          h3 TMIXのデザインエディタ
+          a(href="https://tmix.jp/designs/new") https://tmix.jp/designs/new
+        section(data-background-image="img/tmix_editor_pale.png")
+          h2 事例紹介
+          h3 TMIXのデザインエディタ
+          p エディタのViewとしてReact.jsを採用しており
+          p SSRのためのNode.jsがdocker container内で動作
+        section
+          h2 事例紹介
+          img(src="img/steers.png")
+          a(href="https://steers.jp") https://steers.jp
+        section(data-background-image="img/steers_tshirts.png")
+          h2 事例紹介
+          h3 STEERSの画像加工・配信
+        section(data-background-image="img/steers_tshirts_pale.png")
+          h2 事例紹介
+          h3 STEERSの画像加工・配信
+          p Tシャツ画像のリサイズ、キャッシュ等を行う
+          p サーバーがdocker container内で動作
+        section(data-background-image="img/n0h0_com_pale.png")
+          h2 事例紹介
+          ul
+            li unasuke.com
+            li blog.unasuke.com
+            li n0h0.com
+          .fragment
+            p これらwebページのサーバーが
+            p docker container内で動作
+        section
+          h2 docker導入してどうだったか
+          ul
+            li TMIX
+            li STEERS
+            li unasuke.com
+          br
+          small
+            p 僕が関わっているdocker動作環境について
+        section
+          h2 docker導入してどうだったか
+          h3 開発に関して(Pros)
+          ul
+            li 開発環境構築の手間が無くなった
+            li 本番環境との乖離が激減した
+        section
+          h2 docker導入してどうだったか
+          h3 開発に関して(Cons)
+          ul
+            li docker for macとにかくつらい問題
+            ul
+              li fs遅い
+              li time drift
+              li 大運動会
+        section
+          h2 docker導入してどうだったか
+          h3 運用に関して(Pros)
+          ul
+            li ECSによる管理コストの削減
+            ul
+              li TMIX・STEERS
+            li 障害発生から1分で復旧
+            ul
+              li unasuke.com
+              li sshでコマンド1つ実行するだけ
+        section
+          h2 docker導入してどうだったか
+          h3 運用に関して(Cons)
+          ul
+            li 既存の運用手法が一部使用不能
+            ul
+              li 1回だけ実行したいスクリプトどうする
+              li 実行環境に入って調査したい
+        section
+          h2 Should we use doker?
+          small
+            p タイトル回収
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3 あなたはwebアプリケーション開発をしますか？
+          .fragment
+            p dockerを使いましょう
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3 あなたはwebアプリケーション開発をしますか？
+          p
+            | DB、cache、各種ライブラリ……
+            br
+            | バージョンの差異で何が起こるか把握できますか？
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3
+            | あなたはクロスプラットフォームな
+            br
+            | ライブラリの開発をしますか？
+          .fragment
+            p dockerを使いましょう
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3
+            | あなたはクロスプラットフォームな
+            br
+            | ライブラリの開発をしますか？
+          p
+            | Linuxだけでもdebian、fedora、Gentoo……
+            br
+            | 各環境を整えるのは手間がかかりますね
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3
+            | あなたはモバイルアプリ開発をしますか？
+          .fragment
+            p dockerを使う必要はないでしょう
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3
+            | あなたはモバイルアプリ開発をしますか？
+          p 何を仮想化するっていうんだ
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3
+            | あなたはOSネイティブアプリ開発をしますか？
+          .fragment
+            p dockerを使う必要はないでしょう
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3
+            | あなたはOSネイティブアプリ開発をしますか？
+          p 仮想化する部分はどこですか
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3
+            | あなたは複数人によるチームで開発をしますか？
+          .fragment
+            p dockerを使いましょう
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3
+            | あなたは複数人によるチームで開発をしますか？
+          p 開発者ごとで環境が異なると厄介です
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3 わかってきましたね？
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          ul
+            li 複数OSが関わってくる
+            li 複数のソフトウェアが関わってくる
+            li 複数の開発者が関わってくる
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          p
+            | 無理に導入する必要はありません
+            br
+            | しかし触ってみるべきでしょう
+          small
+            | 「なぜ世間でこんなにdockerが流行っているのか？」
+        section
+          h2 経験者からのアドバイス
+        section
+          h2
+            span Should&nbsp;
+            del we
+            span &nbsp;I use doker?
+          h3 あなたはwebアプリケーション開発をしますか？
+        section
+          h2 経験者からのアドバイス
+          h3 あなたはwebアプリケーション開発をしますか？
+        section
+          h2 経験者からのアドバイス
+          h3 あなたはwebアプリケーション開発をしますか？
+          b(style="font-size:2em;") 12-Factor Appに従いましょう
+        section
+          h3 12-Factor-Appとは
+          a(href="https://12factor.net/ja/") https://12factor.net/ja/
+        section
+          h3 12-Factor Appとdocker
+          p
+            | 12-Factor Appに従ったアプリケーションは
+            br
+            | docker化も容易に行なえる
+        section
+          h2 まとめ
+          h3 dockerを導入すると……
+          ul
+            li 複数OSが関わってくる
+            li 複数のソフトウェアが関わってくる
+            li 複数の開発者が関わってくる
+          p 開発で力を発揮する
+          p Enjoy your development!l
+    script(src='lib/js/head.min.js')
+    script(src='js/reveal.js')
+    script.
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
